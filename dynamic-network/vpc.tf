@@ -9,9 +9,3 @@ resource "aws_vpc" "main" {
     Environment = "development"
   }
 }
-
-resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.secondary_cidr
-}
-

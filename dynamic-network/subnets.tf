@@ -34,7 +34,7 @@ resource "aws_subnet" "private" {
 }
 
 locals {
-  az_count = var.dynamic_subnets == "true" ? length(data.aws_availability_zones.available.names) : var.subnet_pairs
+  az_count = var.dynamic_subnets == true ? length(data.aws_availability_zones.available.names) : var.subnet_pairs
 
   subnet_count = {
     public  = local.az_count

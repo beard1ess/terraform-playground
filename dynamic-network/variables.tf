@@ -1,22 +1,21 @@
 variable "primary_cidr" {
-  default = "10.10.0.0/16"
-}
-
-variable "secondary_cidr" {
-  default = "172.2.0.0/24"
+  default     = "10.10.0.0/16"
+  description = "cidr for VPC. must conform to RFC1918"
 }
 
 variable "subnet_pairs" {
-  default = 1
+  description = "number of subnet pairs (public and private) to create. INACTIVE if using dynamic subnetting"
+  default     = 1
 }
 
 variable "dynamic_subnets" {
-  description = "true/false to determine if all AZs should be filled. boolean has to be string lol?"
-  default     = "true"
+  description = "true/false to determine if all AZs should be filled."
+  default     = true
+  type        = bool
 }
 
 variable "optional_private_dns" {
-  description = "create a private hosted zone to attach to vpc"
+  description = "create a private hosted zone to attach to vpc with the given name"
   default     = ""
 }
 
